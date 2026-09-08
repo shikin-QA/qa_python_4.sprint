@@ -3,6 +3,8 @@
 
 ### Метод add_new_book
 test_add_new_book_creates_empty_genre — проверка, что после добавления книги её жанр — пустая строка
+test_add_new_book_success — проверка, что книга с корректным названием добавляется в словарь.
+test_add_new_book_max_length_name_success — проверка, что книга с названием ровно из 40 символов добавляется.
 test_add_new_book_invalid_name_length — параметризованный тест: пустая строка и строка длиннее 40 символов не добавляются
 test_add_new_book_duplicate_not_added_twice — одну и ту же книгу нельзя добавить дважды
 
