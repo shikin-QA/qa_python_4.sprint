@@ -9,6 +9,17 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Гарри Поттер')
         assert collector.get_book_genre('Гарри Поттер') == ''
+        
+    def test_add_new_book_success(self):
+        collector = BooksCollector()
+        collector.add_new_book('Гордость и предубеждение')
+        assert 'Гордость и предубеждение' in collector.get_books_genre()
+
+    def test_add_new_book_max_length_name_success(self):
+        collector = BooksCollector()
+        name = 'А' * 40  # ровно 40 символов — допустимо
+        collector.add_new_book(name)
+        assert name in collector.get_books_genre()   
 
     @pytest.mark.parametrize('name', ['', 'Очень длинное название книги, которое точно превышает сорок символов и не должно добавиться'])
     def test_add_new_book_invalid_name_length(self, name):
